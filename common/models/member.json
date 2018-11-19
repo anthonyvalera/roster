@@ -1,0 +1,54 @@
+{
+  "name": "member",
+  "plural": "members",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "avatar": {
+      "type": "string",
+      "required": true
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "string",
+      "required": true
+    },
+    "links": {
+      "type": [
+        "object"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "publicEmail": {
+      "type": "string"
+    },
+    "isHidden": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "short": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
