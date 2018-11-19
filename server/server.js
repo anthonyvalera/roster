@@ -3,6 +3,10 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 var app = module.exports = loopback();
 
 app.start = function() {
