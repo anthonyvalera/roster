@@ -8,7 +8,7 @@ export default class Registration extends Component {
   }
 
   render() {
-    const { allTags } = this.props;
+    const { tagsInDb } = this.props;
     return (
       <div>
         <h1>Register for SD Roster</h1>
@@ -71,8 +71,10 @@ export default class Registration extends Component {
           </div>
           <br></br>
           <h3>Skills, Tags & Tools</h3>
+          <p> Map tags here...</p>
           <div>
-          {allTags.map((tags, index) =>
+
+          {tagsInDb.map((tags, index) =>
                 <li key={index} className="list-group-item">
                 <div className="text-left">{tags.name}</div>
                 </li>
