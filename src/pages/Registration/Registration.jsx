@@ -11,12 +11,13 @@ export default class Registration extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getTags());
+
   }
 
   render() {
-    const { tagsInDb } = this.props;
+    const { tags } = this.props;
     return (
-      <div>
+            <div>
         <h1>Register for SD Roster</h1>
         <form>
           <div className="form-group">
@@ -80,9 +81,9 @@ export default class Registration extends Component {
           <p> Map tags here...</p>
           <div>
             <ul>
-            {tagsInDb.map(tag => {
-              <li key={'tag-' + tagsInDb.indexOf(tag)}>{tag}</li>;
-            })}
+            {tags.map((tag, i) => (
+              <li key={i}>{tag.name}</li>
+            ))}
             </ul>
           </div>
           <button type="submit" className="btn btn-primary">Register</button>
