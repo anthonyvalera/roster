@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< 39afb3107a1830d7fb422db7f600b32d77c53e3e
 import { getTags, addMember, addInput, addTag } from './actions';
-=======
->>>>>>> add reg form input page
 
 export default class Registration extends Component {
   constructor(props) {
