@@ -3,7 +3,6 @@ import axios from 'axios';
 // Actions
 export function getTags() {
   return {
-<<<<<<< 464cdca7fa76b6d474b6241070b662f9c1e32c19
     type: 'GET_TAGS',
     payload: axios.get('/api/tags')
       .then(response => {
@@ -51,17 +50,3 @@ export const addMember = ( newMember ) =>
       tagIds: newMember.tagIds
     })
   });
-=======
-    type: 'GET_CARDS_FOR_GAME',
-    payload: axios.get('/api/tags')
-      .then(({ data }) => data)
-      .catch(err => {throw err}
-      )
-}
-
-<<<<<<< ec7e8163c98ecc57f4263ccef3e25951fb34ff76
-// payload: axios.get(`http://localhost:3000/api/tags?access_token=efq9KRUJHmDpqA4gcA7ejrpE8hx0nKvRoPAzLpL8JskIeZuc5vy2zmjv4ksdx9KN`)
->>>>>>> building tag mapping for registration page
-=======
- 
->>>>>>> in progress
