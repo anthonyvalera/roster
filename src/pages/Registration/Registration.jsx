@@ -74,11 +74,16 @@ export default class Registration extends Component {
           <p> Map tags here...</p>
           <div>
 
-          {tagsInDb.map((tags, index) =>
+            {tagsInDb.map(tag => {
+              <li key={'tag-' + tagsInDb.indexOf(tag)}>{tag}</li>;
+            })}
+            
+
+          {/* {tagsInDb.map((tags, index) =>
                 <li key={index} className="list-group-item">
                 <div className="text-left">{tags.name}</div>
                 </li>
-          )}
+          )} */}
 
           </div>
           <button type="submit" className="btn btn-primary">Register</button>
