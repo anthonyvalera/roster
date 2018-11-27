@@ -1,9 +1,17 @@
-const initialState = {};
+const initialState = {
+  tags: []
+};
 
 export default function registrationReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    default:
-      return state;
+  case 'GET_TAGS_FULFILLED': {
+    return {
+      ...state,
+      tags: payload
+    };
+  }
+  default:
+    return state;
   }
 }

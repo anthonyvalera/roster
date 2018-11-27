@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getTags } from './actions';
 
 export default class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(getTags());
   }
 
   render() {
@@ -73,18 +79,11 @@ export default class Registration extends Component {
           <h3>Skills, Tags & Tools</h3>
           <p> Map tags here...</p>
           <div>
-
+            <ul>
             {tagsInDb.map(tag => {
               <li key={'tag-' + tagsInDb.indexOf(tag)}>{tag}</li>;
             })}
-            
-
-          {/* {tagsInDb.map((tags, index) =>
-                <li key={index} className="list-group-item">
-                <div className="text-left">{tags.name}</div>
-                </li>
-          )} */}
-
+            </ul>
           </div>
           <button type="submit" className="btn btn-primary">Register</button>
         </form><br></br>
