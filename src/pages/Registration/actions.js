@@ -11,4 +11,49 @@ export function getTags() {
   };    
 }
 
- 
+export const addInput = (name, value) => {
+  return {
+    type: 'ADD_INPUT',
+    payload: {
+      [name]: value
+    }
+  };
+};
+
+export const addMember = ( newMember ) =>
+  ({
+    type: 'ADD_MEMBER',
+    payload: axios.post('/api/members', {
+      firstName: newMember.firstName,
+      lastName: newMember.lastName,
+      email: newMember.accountEmail,
+      password: newMember.password,
+      verifyPassword: newMember.verifyPassword,
+      headline: newMember.headline,
+      bio: newMember.shortBio,
+      avatar: newMember.avatar,
+      publicEmail: newMember.publicEmail,
+      website: newMember.website,
+      linkedIn: newMember.linkedIn,
+      facebook: newMember.facebook,
+      twitter: newMember.twitter,
+      //tags: newMember.tags
+      // links: [{
+      //   name: 'Twitter',
+      //   value: newMember.twitter
+      // },
+      // {
+      //   name: 'LinkedIn',
+      //   value: newMember.linkedIn
+      // },
+      // {
+      //   name: 'Website',
+      //   value: newMember.links.name
+      // },
+      // {
+      //   name: 'facebook',
+      //   value: newMember.facebook
+      // }
+      // ],
+    })
+  });

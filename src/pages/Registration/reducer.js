@@ -1,5 +1,31 @@
+//this initial state is not finished
 const initialState = {
-  tags: []
+  tags: [],
+  member: {
+    firstName: '',
+    lastName: '',
+    accountEmail: '',
+    password: '',
+    verifyPassword: '',
+    headline: '',
+    shortBio: '',
+    avatar: '',
+    publicEmail: '',
+    website: '',
+    linkedIn: '',
+    facebook: '',
+    twitter: '',
+    tags: '',
+    // links: {
+    //   name: '',
+    //   value: '',
+    // },
+    // tags: [{
+    //   name: '',
+    //   type: ''
+    // }]
+
+  }
 };
 
 export default function registrationReducer(state = initialState, action) {
@@ -11,6 +37,31 @@ export default function registrationReducer(state = initialState, action) {
       tags: payload
     };
   }
+
+  case 'ADD_INPUT' : {
+    return {
+      ...state,
+      member: {...state.member, ...payload}
+    };
+  }
+
+  //this return is not finished
+  case 'ADD_MEMBER_FULFILLED': {
+    return {
+      ...state,
+      member: initialState.member,
+      ...payload      
+    };
+  }
+
+  // this return is not finished
+  case 'ADD_MEMBER': {
+    return {
+      ...state,
+      ...payload
+    };
+  }
+
   default:
     return state;
   }
