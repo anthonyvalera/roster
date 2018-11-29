@@ -1,4 +1,3 @@
-//this initial state is not finished
 const initialState = {
   tags: [],
   member: {
@@ -45,7 +44,6 @@ export default function registrationReducer(state = initialState, action) {
     };
   }
 
-  //this return is not finished
   case 'ADD_MEMBER_FULFILLED': {
     return {
       ...state,
@@ -54,7 +52,6 @@ export default function registrationReducer(state = initialState, action) {
     };
   }
 
-  // this return is not finished
   case 'ADD_MEMBER': {
     return {
       ...state,
