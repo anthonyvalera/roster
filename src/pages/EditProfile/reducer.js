@@ -21,6 +21,7 @@ const initialState = {
 export default function editMemberReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+<<<<<<< HEAD
 
   case 'GET_MEMBER': {
     return {
@@ -90,6 +91,8 @@ export default function editMemberReducer(state = initialState, action) {
     };
   }
 
+=======
+>>>>>>> Landing component get necessary data and built before member remote method for additional security
   default:
     return state;
   }

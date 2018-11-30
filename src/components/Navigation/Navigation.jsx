@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { getTags } from '../../pages/Home/actions';
 =======
 >>>>>>> Bare bones landing page functionalit #4
+=======
+import { getTags } from '../../pages/Home/actions';
+>>>>>>> Landing component get necessary data and built before member remote method for additional security
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -20,6 +24,9 @@ export default class Navigation extends Component {
     const { tags } = this.props;
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Landing component get necessary data and built before member remote method for additional security
       <div id='nav-content'>
         <div id='main-nav-content'>
           <h1>sandiegoJS</h1>
@@ -33,6 +40,7 @@ export default class Navigation extends Component {
             <button key={'tag-' + tags.indexOf(tag)}>{tag.name}</button>
           ))}
         </div>
+<<<<<<< HEAD
 =======
       <div>
         <h1>SDJS Roster</h1>
@@ -44,6 +52,8 @@ export default class Navigation extends Component {
           <button key={'tag-' + tags.indexOf(tag)}>{tag.name}</button>
         ))}
 >>>>>>> Bare bones landing page functionalit #4
+=======
+>>>>>>> Landing component get necessary data and built before member remote method for additional security
       </div>
     );
   }
