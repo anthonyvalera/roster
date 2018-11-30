@@ -83,7 +83,7 @@ export default function editMemberReducer(state = initialState, action) {
     };
   }
 
-  case 'GET_SHOWHIDE_MEMBER_FULFILLED': {
+  case 'SHOWHIDE_MEMBER_FULFILLED': {
     return {
       ...state,
       isHidden: payload
