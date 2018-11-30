@@ -7,9 +7,10 @@ export default class EditProfile extends Component {
   constructor(props) {
     super(props);
     //this.state = {};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
+    this.handleChange   = this.handleChange.bind(this);
+    this.handleSubmit   = this.handleSubmit.bind(this);
+    this.handleDelete   = this.handleDelete.bind(this);
+    this.handleShowHide = this.handleShowHide.bind(this);
   }
 
   componentDidMount() {
@@ -35,12 +36,12 @@ export default class EditProfile extends Component {
 
   handleDelete() {
     const { getMember, dispatch } = this.props;
-    dispatch(deleteMember(getMember));
+    dispatch(deleteMember(getMember.id));
   }
 
   handleShowHide() {
     const { getMember, dispatch } = this.props;
-    dispatch(showHideMember(getMember));
+    dispatch(showHideMember(getMember.id));
   }
 
   render() {
@@ -119,7 +120,7 @@ export default class EditProfile extends Component {
             
           <button type="submit" className="button submit btn btn-primary">Edit Profile</button>
         </form><br></br>
-        <button onClick={this.handleDelete} className="button submit btn btn-primary">Show/Hide Profile</button>
+        <button onClick={this.handleShowHide} className="button submit btn btn-primary">Show/Hide Profile</button>
         <br></br><br></br>
         <Link to="/" className='md-back-link'><button type="submit" className="btn btn-primary">Go Back</button></Link>
         <br></br><br></br>
