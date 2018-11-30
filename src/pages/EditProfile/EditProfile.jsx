@@ -41,11 +41,12 @@ export default class EditProfile extends Component {
 
   handleShowHide() {
     const { getMember, dispatch } = this.props;
-    dispatch(showHideMember(getMember.id));
+    dispatch(showHideMember(getMember));
   }
 
   render() {
-    const { getMember, tags, tagIds } = this.props;
+    const { getMember, tags, tagIds, isHidden } = this.props;
+
     return (
             <div>
         <h1>Edit Profile</h1>
@@ -121,6 +122,7 @@ export default class EditProfile extends Component {
           <button type="submit" className="button submit btn btn-primary">Edit Profile</button>
         </form><br></br>
         <button onClick={this.handleShowHide} className="button submit btn btn-primary">Show/Hide Profile</button>
+        <div>Your profile is {isHidden === true ? 'Hidden' : "Visible"}</div>
         <br></br><br></br>
         <Link to="/" className='md-back-link'><button type="submit" className="btn btn-primary">Go Back</button></Link>
         <br></br><br></br>
