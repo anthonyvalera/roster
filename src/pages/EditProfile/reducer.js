@@ -10,6 +10,7 @@ const initialState = {
     bio: '',
     avatar: '',
     publicEmail: '',
+    //isHidden: '',
     website: '',
     linkedIn: '',
     facebook: '',
@@ -75,18 +76,21 @@ export default function editMemberReducer(state = initialState, action) {
     };
   }
 
-  case 'SHOWHIDE_MEMBER' : {
-    return {
-      ...state,
-      //isHidden: state.isHidden,
-      ...payload
-    };
-  }
+  // case 'SHOWHIDE_MEMBER' : {
+  //   return {
+  //     ...state,
+  //     ...payload
+    
+  //   };
+  // }
 
   case 'SHOWHIDE_MEMBER_FULFILLED': {
     return {
       ...state,
-      isHidden: payload
+      member: {
+        ...state.member,
+        isHidden: payload
+      }
     };
   }
 
