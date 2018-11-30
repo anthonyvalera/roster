@@ -4,14 +4,14 @@ import axios from 'axios';
 export function getMember() {
   return {
     type: 'GET_MEMBER',
-    payload: axios.get('/api/members/5bfee551eacf0737a9142683')
+    payload: axios.get('/api/members/5c005d7e3e9d7c463a16e60f')
       .then(response => {
         return response.data;
       })
   };    
 }
 
-export const addInput = (name, value) => {
+export const editInput = (name, value) => {
   return {
     type: 'EDIT_INPUT',
     payload: {
@@ -20,10 +20,20 @@ export const addInput = (name, value) => {
   };
 };
 
+export const editTag = (name, value) => {
+  return {
+    type: 'EDIT_TAG',
+    payload: {
+      name,
+      value,
+    }
+  };
+};
+
 export const editMember = ( getMember ) =>
   ({
-    type: 'ADD_MEMBER',
-    payload: axios.patch('/api/members/5bfee551eacf0737a9142683', {
+    type: 'EDIT_MEMBER',
+    payload: axios.patch('/api/members/5c005d7e3e9d7c463a16e60f', {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
@@ -35,27 +45,28 @@ export const editMember = ( getMember ) =>
       website: getMember.website,
       linkedIn: getMember.linkedIn,
       facebook: getMember.facebook,
-      twitter: getMember.twitter
+      twitter: getMember.twitter,
+      tagIds: getMember.tagIds
     })
   });
 
   //works when hardcoding the id.  Need to adjust this $id variable
 export function deleteMember(id) {
-    console.log
   return {
     type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${id}`)
+    payload: axios.delete(`api/members/${id.id}`)
       .then(response => {
         return response.data;
       })
   };
-
-
-// export const deleteMember = (id) =>
-//   ({
-//     type: 'DELETE_MEMBER',
-//     payload: axios.delete(`api/members/${id}`)
-//       .then(response => {
-//         return response.data;
-//       })
-//   });
+}
+/*
+export const deleteMember = (id) =>
+  ({
+    type: 'DELETE_MEMBER',
+    payload: axios.delete(`api/members/${id.id}`)
+      .then(response => {
+        return response.data;
+      })
+  });
+*/

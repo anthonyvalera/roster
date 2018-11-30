@@ -4,8 +4,8 @@
     "connector": "memory"
   },
   "mongodb": {
-    "name": "mongodb",
     "database": "roster",
+    "name": "mongodb",
     "connector": "mongodb"
   }
 }

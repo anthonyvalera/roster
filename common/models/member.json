@@ -48,7 +48,16 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "tags": {
+      "type": "referencesMany",
+      "model": "tag",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
