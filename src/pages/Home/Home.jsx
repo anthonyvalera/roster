@@ -9,7 +9,7 @@ export default class Home extends Component {
     this.state = {};
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getTags());
     dispatch(getMembers());
@@ -19,11 +19,14 @@ export default class Home extends Component {
     const { members } = this.props;
     return (
       <div>
-        <h1>Home</h1>
         <Nav />
-        {members.map(member => (
-          <MemberCard key={'card-' + members.indexOf(member)} info={member} />
-        ))}
+        <div id='roster-cards'>
+          {
+            members.map(member => (
+              <MemberCard key={'card-' + members.indexOf(member)} info={member} />
+            ))
+          }
+        </div>
       </div>
     );
   }
