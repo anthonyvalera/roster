@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import Home from './Home';
 
-const mapStoreToProps = () => {
-  return {};
+const mapStoreToProps = (store) => {
+  return {
+    members: store.home.members
+  };
 };
 
 export default connect(mapStoreToProps)(Home);
