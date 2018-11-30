@@ -53,7 +53,7 @@ export const editMember = ( getMember ) =>
     })
   });
 
-  export const showHideMember = ( getMember ) =>
+export const showHideMember = ( getMember ) =>
   ({
     type: 'SHOWHIDE_MEMBER',
     payload: axios.patch('/api/members/5c005d7e3e9d7c463a16e60f', {
