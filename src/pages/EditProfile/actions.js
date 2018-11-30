@@ -54,14 +54,14 @@ export const editMember = ( getMember ) =>
     })
   });
 
-export const showHideMember = ( id ) =>
+export const showHideMember = ( getMember ) =>
   ({
     type: 'SHOWHIDE_MEMBER',
-    payload: axios.patch(`/api/members/${id}`, {
+    payload: axios.patch(`/api/members/${getMember.id}`, {
       isHidden: !getMember.isHidden
     })
-    .then(response => { console.log('isHidden fired = ',getMember.isHidden);
-      return response.data;
+    .then(response => {
+      return response.data.isHidden;
     })
   });
   
