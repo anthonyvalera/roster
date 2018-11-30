@@ -75,6 +75,14 @@ export default function editMemberReducer(state = initialState, action) {
     };
   }
 
+  case 'SHOWHIDE_MEMBER' : {
+    return {
+      ...state,
+      ...payload,
+      isHidden: !state.member.isHidden
+    };
+  }
+
   case 'DELETE_MEMBER' : {
     return {
       ...state,

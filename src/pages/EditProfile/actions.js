@@ -48,9 +48,20 @@ export const editMember = ( getMember ) =>
       twitter: getMember.twitter,
       tagIds: getMember.tagIds
     })
+    .then(response => {
+      return response.data;
+    })
   });
 
-  //works when hardcoding the id.  Need to adjust this $id variable
+  export const showHideMember = ( getMember ) =>
+  ({
+    type: 'SHOWHIDE_MEMBER',
+    payload: axios.patch('/api/members/5c005d7e3e9d7c463a16e60f', {
+      isHidden: getMember.isHidden
+    })
+  });
+
+  
 export function deleteMember(id) {
   return {
     type: 'DELETE_MEMBER',

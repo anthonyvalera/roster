@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getMember, editMember, deleteMember, editInput, editTag } from './actions';
+import { getMember, editMember, deleteMember, editInput, editTag, showHideMember } from './actions';
 import { getTags } from '../Registration/actions';
 
 export default class EditProfile extends Component {
@@ -36,6 +36,11 @@ export default class EditProfile extends Component {
   handleDelete() {
     const { getMember, dispatch } = this.props;
     dispatch(deleteMember(getMember));
+  }
+
+  handleShowHide() {
+    const { getMember, dispatch } = this.props;
+    dispatch(showHideMember(getMember));
   }
 
   render() {
@@ -114,6 +119,8 @@ export default class EditProfile extends Component {
             
           <button type="submit" className="button submit btn btn-primary">Edit Profile</button>
         </form><br></br>
+        <button onClick={this.handleDelete} className="button submit btn btn-primary">Show/Hide Profile</button>
+        <br></br><br></br>
         <Link to="/" className='md-back-link'><button type="submit" className="btn btn-primary">Go Back</button></Link>
         <br></br><br></br>
         <button onClick={this.handleDelete} className="button submit btn btn-primary">Delete Profile</button>
