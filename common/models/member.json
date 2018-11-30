@@ -54,7 +54,7 @@
       "model": "tag",
       "foreignKey": "",
       "options": {
-        "nestRemoting": false
+        "nestRemoting": true
       }
     }
   },
