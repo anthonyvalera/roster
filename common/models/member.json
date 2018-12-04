@@ -54,11 +54,7 @@
       "model": "tag",
       "foreignKey": "",
       "options": {
-<<<<<<< HEAD
         "nestRemoting": true
-=======
-        "nestRemoting": false
->>>>>>> Landing component get necessary data and built before member remote method for additional security
       }
     }
   },
