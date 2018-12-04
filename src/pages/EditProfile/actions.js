@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// Actions
-export function getMember() {
+export const getMember = () => {
   return {
     type: 'GET_MEMBER',
     payload: axios.get('/api/members/5bfee052b76f2130520d5a92')
@@ -65,16 +64,6 @@ export const showHideMember = ( getMember ) =>
     })
   });
   
-export function deleteMember(id) {
-  return {
-    type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${id}`)
-      .then(response => {
-        return response.data;
-      })
-  };
-}
-/*
 export const deleteMember = (id) =>
   ({
     type: 'DELETE_MEMBER',
@@ -83,4 +72,3 @@ export const deleteMember = (id) =>
         return response.data;
       })
   });
-*/
