@@ -4,6 +4,7 @@ export default class MemberCard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+
   }
 
   render() {
