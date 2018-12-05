@@ -15,7 +15,8 @@ export function getMembers() {
     .then(({ data }) => data.map(member => ({
       avatar: member.avatar,
       name: member.firstName + ' ' + member.lastName,
-      headline: member.headline
+      headline: member.headline,
+      tags: member.tagIds
     })))
   };
 }
