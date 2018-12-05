@@ -7,6 +7,7 @@ const initialState = {
     headline: '',
     bio: '',
     avatar: '',
+    verifyPassword: '',
     publicEmail: '',
     website: '',
     linkedIn: '',
