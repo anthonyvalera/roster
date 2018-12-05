@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import { getMember, editMember, deleteMember, editInput, editTag, showHideMember } from './actions';
 import { getTags } from '../Registration/actions';
+
 export default class EditProfile extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +46,10 @@ export default class EditProfile extends Component {
   }
 
   render() {
+    if (this.props.token) {
+      console.log('token = ' , this.props.token);
+      return <Redirect push to='/login' />;
+    }
     const { getMember, tags, tagIds, isHidden } = this.props;
     return (
       <div>
