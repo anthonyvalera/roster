@@ -4,7 +4,6 @@ const initialState = {
     lastName: '',
     email: '',
     password: '',
-    verifyPassword: '',
     headline: '',
     bio: '',
     avatar: '',
