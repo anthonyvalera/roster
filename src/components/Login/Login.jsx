@@ -40,17 +40,17 @@ export default class Login extends Component {
     return (
       <div>
         <h1>Login</h1>
-        {/* <form onSubmit={ this.submitLogin }>
+        <form onSubmit={ this.submitLogin }>
           <label htmlFor="email">Account Email:</label>
-          <input type="email" id="email" autoComplete="email" onChange={this.handleEmail} />
-          <label htmlFor="password">Password</label>
+          <input type="email" id="email" autoComplete="email" onChange={this.handleEmail} /><br />
+          <label htmlFor="password">Password:</label>
           <input type="password" autoComplete="verifyPassword" id="password" onChange={this.handlePassword} />
          <div>
            <p>
             <button type="submit" id="submit">Login</button>
            </p>
          </div>            
-        </form> */}
+        </form>
         <div>
           <p>
             <Link to='/' className='md-back-link'><button type='submit' className='btn btn-primary'>Main Page</button></Link>
