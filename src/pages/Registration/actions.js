@@ -49,10 +49,3 @@ export const addMember = ( newMember ) =>
       tagIds: newMember.tagIds
     })
   });
-
-    type: 'GET_CARDS_FOR_GAME',
-    payload: axios.get('/api/tags')
-      .then(({ data }) => data)
-      .catch(err => {throw err}
-      )
-}
