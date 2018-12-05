@@ -5,7 +5,8 @@ const mapStoreToProps = (store) => {
   return {
     tags: store.registration.tags,
     tagIds: store.edit.member.tagIds,
-    getMember: store.edit.member
+    getMember: store.edit.member,
+    isHidden: store.edit.member.isHidden
   };
 };
 

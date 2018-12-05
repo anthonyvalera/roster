@@ -21,7 +21,7 @@ export default class Navigation extends Component {
           <h1>sandiegoJS</h1>
           <p>We are a 4,000+ member strong community full of some amazing people who love JavaScript.</p>
           <Link to='/registration'><button>Add Your Profile</button></Link>
-          <button>Edit Your Profile</button>
+          <Link to='/profile'><button>Edit Your Profile</button></Link>
         </div>
         <div id='nav-search'>
           <h3>Search by:</h3>

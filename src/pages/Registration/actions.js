@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// Actions
-export function getTags() {
+export const getTags = () => {
   return {
     type: 'GET_TAGS',
     payload: axios.get('/api/tags')
@@ -50,3 +49,10 @@ export const addMember = ( newMember ) =>
       tagIds: newMember.tagIds
     })
   });
+
+    type: 'GET_CARDS_FOR_GAME',
+    payload: axios.get('/api/tags')
+      .then(({ data }) => data)
+      .catch(err => {throw err}
+      )
+}

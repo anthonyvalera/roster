@@ -1,14 +1,13 @@
-
 const initialState = {
   member: {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
-    verifyPassword: '',
     headline: '',
     bio: '',
     avatar: '',
+    verifyPassword: '',
     publicEmail: '',
     website: '',
     linkedIn: '',
@@ -63,23 +62,17 @@ export default function editMemberReducer(state = initialState, action) {
   case 'EDIT_MEMBER_FULFILLED': {
     return {
       ...state,
-      member: initialState.member,
-      ...payload      
-    };
-  }
-
-  case 'EDIT_MEMBER': {
-    return {
-      ...state,
       ...payload
     };
   }
 
-  case 'SHOWHIDE_MEMBER' : {
+  case 'SHOWHIDE_MEMBER_FULFILLED': {
     return {
       ...state,
-      ...payload,
-      isHidden: !state.member.isHidden
+      member: {
+        ...state.member,
+        isHidden: payload
+      }
     };
   }
 
