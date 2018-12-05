@@ -15,7 +15,37 @@ export function getMembers() {
     .then(({ data }) => data.map(member => ({
       avatar: member.avatar,
       name: member.firstName + ' ' + member.lastName,
-      headline: member.headline
+      headline: member.headline,
+      tagIds: member.tagIds,
+      id: member.id
     })))
+  };
+}
+
+
+export function getSelectedMember(id) {
+  return {
+    type: 'GET_SELECTED_MEMBER',
+    payload: axios.get('/api/members/' + id)
+    .then(({ data }) => ({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.publicEmail,
+      headline: data.deadline,
+      bio: data.bio,
+      avatar: data.avatar,
+      website: data.website,
+      linkedIn: data.linkedIn,
+      facebook: data.facebook,
+      twitter: data.twitter,
+      tagIds: data.tagIds
+    }))
+  };
+}
+
+export function closeProfile() {
+  return {
+    type: 'CLOSE_PROFILE',
+    payload: null
   };
 }

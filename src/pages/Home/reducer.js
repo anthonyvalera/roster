@@ -1,6 +1,7 @@
 const initialState = {
   tags: [],
-  members: []
+  members: [],
+  selectedMember: null
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -16,6 +17,18 @@ export default function homeReducer(state = initialState, action) {
     return {
       ...state,
       members: payload
+    }; 
+  }
+  case 'GET_SELECTED_MEMBER_FULFILLED': {
+    return {
+      ...state,
+      selectedMember: payload
+    }; 
+  }
+  case 'CLOSE_PROFILE': {
+    return {
+      ...state,
+      selectedMember: payload
     }; 
   }
   default:
