@@ -16,14 +16,14 @@ export default class Home extends Component {
   }
 
   render() {
-    const { members } = this.props;
+    const { members, tags } = this.props;
     return (
       <div>
         <Nav />
         <div id='roster-cards'>
           {
-            members.map(member => (
-              <MemberCard key={'card-' + members.indexOf(member)} info={member} />
+            members.map((member, index) => (
+              <MemberCard key={'card-' + index} memberInfo={member} memberTags={tags.filter(tag => member.tags.includes(tag.id))} />
             ))
           }
         </div>
