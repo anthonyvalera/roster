@@ -36,12 +36,17 @@ export default class EditProfile extends Component {
 
   handleDelete() {
     const { getMember, dispatch } = this.props;
-    dispatch(deleteMember(getMember.id));
+    dispatch(deleteMember(getMember));
   }
 
   handleShowHide() {
     const { getMember, dispatch } = this.props;
     dispatch(showHideMember(getMember));
+  }
+
+  handlePassword(event) {
+    const {getMember, dispatch } = this.props;
+    dispatch(updatePassword(getMember));
   }
 
   render() {
@@ -63,10 +68,6 @@ export default class EditProfile extends Component {
             <input onChange={this.handleChange} value={getMember.email} type='email' className='form-control' name='email' /><br />
             <small name='accountEmail' className='form-text text-muted'>This email will not be shared with anyone.</small>
           </div><br />
-          <div className='form-group'>
-            <label htmlFor='verifyPassword'>Current Password</label>
-            <input onChange={this.handleChange} type='text' value={getMember.verifyPassword} className='form-control' name='verifyPassword' />
-          </div>
           <h2>Account Profile Information</h2>
           <div className='form-group'>
             <label htmlFor='headline'>Headline/Title</label>
@@ -113,7 +114,23 @@ export default class EditProfile extends Component {
               </li>
             ))}
           </ul>
-          <button type='submit' className='button submit btn btn-primary'>Update Profile</button>
+          <button type='submit' className='button submit btn btn-primary'>Update Profile & Exit</button>
+        </form><br />
+        <form onSubmit={this.handlePassword} name='changePassword'>
+          <div className='form-group'>
+            <label htmlFor='oldPassword'>Old Password</label>
+            <input onChange={this.handleChange} value={getMember.oldPassword} type='password' className='form-control' name='oldPassword' />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='newPassword'>New Password</label>
+            <input onChange={this.handleChange} value={getMember.newPassword} type='password' className='form-control' name='newPassword' />
+          </div>
+          <div className='form-group'>
+            <label htmlFor='confirmPassword'>Confirm New Password</label>
+            <input onChange={this.handleChange} value={getMember.confirmPassword} type='password' className='form-control' name='confirmPassword' />
+          </div>
+          <button onClick={this.handlePassword} className='button submit btn btn-primary'>Update Password</button>
+
         </form><br />
         <button onClick={this.handleShowHide} className='button submit btn btn-primary'>Show/Hide Profile</button>
         <div>

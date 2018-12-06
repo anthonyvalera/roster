@@ -35,7 +35,7 @@ export default class Registration extends Component {
     return (
       <div>
         <h1>Register for SD Roster</h1>
-        <form onSubmit={this.handleSubmit} name='addMember'>
+        <form onSubmit={this.handleSubmit} href='/' name='addMember'>
           <div className='form-group'>
             <label htmlFor='firstName'>First Name</label>
             <input onChange={this.handleChange} value={newMember.firstName} type='text' className='form-control' name='firstName' placeholder='Enter First Name' />

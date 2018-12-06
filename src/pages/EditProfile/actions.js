@@ -27,6 +27,16 @@ export const editTag = (name, value) => {
   };
 };
 
+export const updatePassword = (oldPassword, newPassword) => {
+  return {
+    type: 'UPDATE_PASSWORD',
+    payload: axios.post(`/api/members/change-password/${getMember.id}`, {
+      oldPassword: oldPassword,
+      newPassword: newPassword
+    })
+  };
+};
+
 export const editMember = ( getMember, token, userId ) => {
   return {
     type: 'EDIT_MEMBER',
@@ -34,7 +44,6 @@ export const editMember = ( getMember, token, userId ) => {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
-      verifyPassword: getMember.verifyPassword,
       headline: getMember.headline,
       bio: getMember.bio,
       avatar: getMember.avatar,
@@ -61,11 +70,11 @@ export const showHideMember = ( getMember ) =>
     })
   });
   
-export const deleteMember = (id) =>
+export const deleteMember = (getMember) =>
   ({
     type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${id}`)
-      .then(response => {
-        return response.data;
-      })
+    payload: axios.delete(`api/members/${getMember.id}`)
+      // .then(response => {
+      //   return response.data;
+      // })
   });
