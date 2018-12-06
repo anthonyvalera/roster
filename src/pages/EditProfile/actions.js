@@ -3,12 +3,12 @@ import axios from 'axios';
 export const getMember = () => {
   return {
     type: 'GET_MEMBER',
-    payload: axios.get('/api/members/5bfee052b76f2130520d5a92')
+    payload: axios.get('/api/members/5c095d51fd334673e837e448')
       .then(response => {
         return response.data;
       })
   };    
-}
+};
 
 export const editInput = (name, value) => {
   return {
@@ -29,14 +29,23 @@ export const editTag = (name, value) => {
   };
 };
 
+export const updatePassword = (oldPassword, newPassword) => {
+  return {
+    type: 'UPDATE_PASSWORD',
+    payload: axios.post(`/api/members/change-password/${getMember.id}`, {
+      oldPassword: oldPassword,
+      newPassword: newPassword
+    })
+  };
+};
+
 export const editMember = ( getMember ) =>
   ({
     type: 'EDIT_MEMBER',
-    payload: axios.patch('/api/members/5bfee052b76f2130520d5a92', {
+    payload: axios.patch(`/api/members/${getMember.id}`, {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
-      verifyPassword: getMember.verifyPassword,
       headline: getMember.headline,
       bio: getMember.bio,
       avatar: getMember.avatar,
@@ -48,9 +57,9 @@ export const editMember = ( getMember ) =>
       twitter: getMember.twitter,
       tagIds: getMember.tagIds
     })
-    .then(response => {
-      return response.data;
-    })
+    // .then(response => {
+    //   return response.data;
+    // })
   });
 
 export const showHideMember = ( getMember ) =>
@@ -64,11 +73,11 @@ export const showHideMember = ( getMember ) =>
     })
   });
   
-export const deleteMember = (id) =>
+export const deleteMember = (getMember) =>
   ({
     type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${id}`)
-      .then(response => {
-        return response.data;
-      })
+    payload: axios.delete(`api/members/${getMember.id}`)
+      // .then(response => {
+      //   return response.data;
+      // })
   });

@@ -3,11 +3,9 @@ const initialState = {
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
     headline: '',
     bio: '',
     avatar: '',
-    verifyPassword: '',
     publicEmail: '',
     website: '',
     linkedIn: '',
@@ -62,7 +60,9 @@ export default function editMemberReducer(state = initialState, action) {
   case 'EDIT_MEMBER_FULFILLED': {
     return {
       ...state,
-      ...payload
+      member: initialState.member,
+      statusText: payload.statusText,
+      status: payload.status
     };
   }
 
@@ -76,10 +76,12 @@ export default function editMemberReducer(state = initialState, action) {
     };
   }
 
-  case 'DELETE_MEMBER' : {
+  case 'DELETE_MEMBER_FULFILLED': {
     return {
       ...state,
-      ...payload
+      member: initialState.member,
+      statusText: payload.statusText,
+      status: payload.status      
     };
   }
 

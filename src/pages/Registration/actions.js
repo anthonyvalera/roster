@@ -37,7 +37,6 @@ export const addMember = ( newMember ) =>
       lastName: newMember.lastName,
       email: newMember.accountEmail,
       password: newMember.password,
-      verifyPassword: newMember.verifyPassword,
       headline: newMember.headline,
       bio: newMember.shortBio,
       avatar: newMember.avatar,

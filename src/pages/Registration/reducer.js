@@ -57,14 +57,8 @@ export default function registrationReducer(state = initialState, action) {
       ...state,
       member: initialState.member,
       tagIds: initialState.tagIds,
-      ...payload      
-    };
-  }
-
-  case 'ADD_MEMBER': {
-    return {
-      ...state,
-      ...payload
+      statusText: payload.statusText,
+      status: payload.status     
     };
   }
 
