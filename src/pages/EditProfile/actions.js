@@ -1,14 +1,12 @@
 import axios from 'axios';
 
-export const getMember = () => {
+export const getMember = (token, userId) => {
   return {
     type: 'GET_MEMBER',
-    payload: axios.get('/api/members/5bfee052b76f2130520d5a92')
-      .then(response => {
-        return response.data;
-      })
+    payload: axios.get('/api/members/' + userId)
+      .then(response => response.data)
   };    
-}
+};
 
 export const editInput = (name, value) => {
   return {
@@ -29,10 +27,10 @@ export const editTag = (name, value) => {
   };
 };
 
-export const editMember = ( getMember ) =>
-  ({
+export const editMember = ( getMember, token, userId ) => {
+  return {
     type: 'EDIT_MEMBER',
-    payload: axios.patch('/api/members/5bfee052b76f2130520d5a92', {
+    payload: axios.patch('/api/members/' + userId, {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
@@ -48,10 +46,9 @@ export const editMember = ( getMember ) =>
       twitter: getMember.twitter,
       tagIds: getMember.tagIds
     })
-    .then(response => {
-      return response.data;
-    })
-  });
+    .then(response => response.data)
+  };
+};
 
 export const showHideMember = ( getMember ) =>
   ({
