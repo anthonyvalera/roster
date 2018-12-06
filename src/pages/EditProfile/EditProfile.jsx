@@ -50,6 +50,11 @@ export default class EditProfile extends Component {
   }
 
   render() {
+    // if (this.props.token) {
+    //   return <Redirect push to='/login' />;
+    // }
+    console.log('status props= ' , this.props);
+
     const { getMember, tags, tagIds, isHidden } = this.props;
     return (
       <div>
