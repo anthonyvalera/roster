@@ -1,7 +1,8 @@
 const initialState = {
   tags: [],
   members: [],
-  selectedMember: null
+  selectedMember: null,
+  isLoggingIn: false
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -29,6 +30,12 @@ export default function homeReducer(state = initialState, action) {
     return {
       ...state,
       selectedMember: payload
+    }; 
+  }
+  case 'LOGGING_IN': {
+    return {
+      ...state,
+      isLoggingIn: payload
     }; 
   }
   default:

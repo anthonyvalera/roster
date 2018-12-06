@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import { getMember, editMember, deleteMember, editInput, editTag, showHideMember } from './actions';
 import { getTags } from '../Registration/actions';
 
@@ -14,8 +13,8 @@ export default class EditProfile extends Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    dispatch(getMember());
+    const { dispatch, token, userId } = this.props;
+    dispatch(getMember(token, userId));
     dispatch(getTags());
   }
 
@@ -31,8 +30,8 @@ export default class EditProfile extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { getMember, dispatch } = this.props;
-    dispatch(editMember(getMember));
+    const { dispatch, getMember, token, userId } = this.props;
+    dispatch(editMember(getMember, token, userId));
   }
 
   handleDelete() {
@@ -51,11 +50,6 @@ export default class EditProfile extends Component {
   }
 
   render() {
-    // if (this.props.token) {
-    //   return <Redirect push to='/login' />;
-    // }
-    console.log('status props= ' , this.props);
-
     const { getMember, tags, tagIds, isHidden } = this.props;
     return (
       <div>

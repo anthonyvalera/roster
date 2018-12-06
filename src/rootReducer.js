@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import EditProfile from './pages/EditProfile/reducer';
-import Home from './pages/Home/reducer';
-import Registration from './pages/Registration/reducer';
+import editProfileReducer from './pages/EditProfile/reducer';
+import homeReducer from './pages/Home/reducer';
+import registrationReducer from './pages/Registration/reducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
-  edit: EditProfile,
-  home: Home,
-  registration: Registration
+  edit: editProfileReducer,
+  home: homeReducer,
+  registration: registrationReducer,
+  user: userReducer
 });

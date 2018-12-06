@@ -3,6 +3,8 @@ import EditProfile from './EditProfile';
 
 const mapStoreToProps = (store) => {
   return {
+    userId: store.user.userId,
+    token: store.user.token,
     tags: store.registration.tags,
     tagIds: store.edit.member.tagIds,
     getMember: store.edit.member,

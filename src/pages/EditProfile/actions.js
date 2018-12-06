@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-export const getMember = () => {
+export const getMember = (token, userId) => {
   return {
     type: 'GET_MEMBER',
-    payload: axios.get('/api/members/5c095d51fd334673e837e448')
-      .then(response => {
-        return response.data;
-      })
+    payload: axios.get('/api/members/' + userId)
+      .then(response => response.data)
   };    
 };
 
@@ -39,10 +37,10 @@ export const updatePassword = (oldPassword, newPassword) => {
   };
 };
 
-export const editMember = ( getMember ) =>
-  ({
+export const editMember = ( getMember, token, userId ) => {
+  return {
     type: 'EDIT_MEMBER',
-    payload: axios.patch(`/api/members/${getMember.id}`, {
+    payload: axios.patch('/api/members/' + userId, {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
@@ -57,10 +55,9 @@ export const editMember = ( getMember ) =>
       twitter: getMember.twitter,
       tagIds: getMember.tagIds
     })
-    // .then(response => {
-    //   return response.data;
-    // })
-  });
+    .then(response => response.data)
+  };
+};
 
 export const showHideMember = ( getMember ) =>
   ({

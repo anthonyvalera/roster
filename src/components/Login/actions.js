@@ -7,15 +7,16 @@ export const postLogin = (userData) => {
       .then(response => response.data)
   };
 };
-export const updateEmail = (value) => {
-  return {
-    type: 'UPDATE_EMAIL',
-    payload: value
-  };
-};
-export const updatePassword = (value) => {
-  return {
-    type: 'UPDATE_PASSWORD',
-    payload: value
-  };
+export const updateInput = (id, value) => {
+  if (id === 'email') {
+    return {
+      type: 'UPDATE_EMAIL',
+      payload: value
+    };
+  } else {
+    return {
+      type: 'UPDATE_PASSWORD',
+      payload: value
+    };
+  }
 };
