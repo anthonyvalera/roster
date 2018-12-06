@@ -3,15 +3,8 @@ import axios from 'axios';
 export const getMember = (token, userId) => {
   return {
     type: 'GET_MEMBER',
-<<<<<<< 56d3b81ddc47a4de906c15d6d49f935b66bd3b63
     payload: axios.get('/api/members/' + userId)
       .then(response => response.data)
-=======
-    payload: axios.get('/api/members/5c095d51fd334673e837e448')
-      .then(response => {
-        return response.data;
-      })
->>>>>>> adding password update functionality
   };    
 };
 
