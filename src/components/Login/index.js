@@ -3,10 +3,9 @@ import Login from './Login';
 
 const mapStoreToProps = (store) => {
   return {
-    userId: store.edit.member.id,
-    token: store.edit.member.token,
-    email: store.edit.member.email,
-    password: store.edit.member.verifyPassword
+    token: store.user.token,
+    email: store.user.email,
+    password: store.user.password
   };
 };
 

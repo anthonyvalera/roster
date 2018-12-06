@@ -49,3 +49,10 @@ export function closeProfile() {
     payload: null
   };
 }
+
+export function loggingIn(value) {
+  return {
+    type: 'LOGGING_IN',
+    payload: value
+  };
+}
