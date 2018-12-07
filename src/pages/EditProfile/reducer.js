@@ -19,13 +19,6 @@ export default function editMemberReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
 
-  case 'GET_MEMBER': {
-    return {
-      ...state,
-      ...payload
-    };
-  }
-
   case 'GET_MEMBER_FULFILLED': {
     return {
       ...state,

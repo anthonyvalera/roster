@@ -25,17 +25,10 @@ export default function userReducer(state = initialState, action) {
     };
   }
   
-  case 'UPDATE_EMAIL': {
+  case 'UPDATE_INPUT': {
     return {
       ...state,
-      email: payload
-    };
-  }
-  
-  case 'UPDATE_PASSWORD': {
-    return {
-      ...state,
-      password: payload
+      ...payload
     };
   }
 
