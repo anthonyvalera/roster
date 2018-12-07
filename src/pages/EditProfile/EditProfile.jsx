@@ -52,8 +52,8 @@ export default class EditProfile extends Component {
 
   handlePassword(event) {
     event.preventDefault();
-    const {getMember, userId, token, dispatch } = this.props;
-    dispatch(updatePassword(getMember, userId, token));
+    const {oldPassword, newPassword, token, userId, dispatch } = this.props;
+    dispatch(updatePassword(oldPassword, newPassword, token, userId));
   }
 
   render() {

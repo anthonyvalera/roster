@@ -11,7 +11,9 @@ const initialState = {
     linkedIn: '',
     facebook: '',
     twitter: '',
-    tagIds: []
+    tagIds: [],
+    oldPassword: '',
+    newPassword: ''
   }
 };
 

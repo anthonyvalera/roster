@@ -28,6 +28,7 @@ export const editTag = (name, value) => {
 };
 
 export const updatePassword = (oldPassword, newPassword, token, userId) => {
+  console.log('update pass fired = ', userId);
   return {
     type: 'UPDATE_PASSWORD',
     payload: axios.post(`/api/members/change-password/${userId}`, {

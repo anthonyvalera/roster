@@ -9,7 +9,9 @@ const mapStoreToProps = (store) => {
     tagIds: store.edit.member.tagIds,
     getMember: store.edit.member,
     isHidden: store.edit.member.isHidden,
-    toProfile: store.home.toProfile
+    toProfile: store.home.toProfile,
+    oldPassword: store.edit.member.oldPassword,
+    newPassword: store.edit.member.newPassword
   };
 };
 
