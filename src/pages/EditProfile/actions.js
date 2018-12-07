@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export const getMember = (token, userId) => {
-  console.log('backend userId: ', userId);
   return {
     type: 'GET_MEMBER',
     payload: axios.get(`/api/members/${userId}`, { headers: { 'Authorization': token } })
@@ -60,10 +59,10 @@ export const editMember = ( getMember, token, userId ) => {
   };
 };
 
-export const showHideMember = ( getMember, token ) =>
+export const showHideMember = ( getMember, userId, token ) =>
   ({
     type: 'SHOWHIDE_MEMBER',
-    payload: axios.patch(`/api/members/${getMember.id}`, {
+    payload: axios.patch(`/api/members/${userId}`, {
       isHidden: !getMember.isHidden
     }, { headers: { 'Authorization': token } })
     .then(response => {
@@ -71,10 +70,10 @@ export const showHideMember = ( getMember, token ) =>
     })
   });
   
-export const deleteMember = (getMember, token) =>
+export const deleteMember = (getMember, userId, token) =>
   ({
     type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${getMember.id}`, { headers: { 'Authorization': token } })
+    payload: axios.delete(`api/members/${userId}`, { headers: { 'Authorization': token } })
       // .then(response => {
       //   return response.data;
       // })

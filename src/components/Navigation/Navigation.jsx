@@ -18,9 +18,8 @@ export default class Navigation extends Component {
 
   handleLogin() {
     const { dispatch } = this.props;
-    const { isLoggingIn, toProfile } = this.props;
-    dispatch(loggingIn(!isLoggingIn));
-    if (this.props.token) {
+    const { isLoggingIn, toProfile, token } = this.props;
+    if (token) {
       dispatch(goToProfile(!toProfile));
     } else {
       dispatch(loggingIn(!isLoggingIn));

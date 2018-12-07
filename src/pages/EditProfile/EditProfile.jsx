@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 import { getMember, editMember, deleteMember, updatePassword, editInput, editTag, showHideMember } from './actions';
 import { getTags } from '../Registration/actions';
 import { goToProfile } from '../Home/actions';
@@ -19,7 +19,6 @@ export default class EditProfile extends Component {
 
   componentDidMount() {
     const { dispatch, token, userId, toProfile } = this.props;
-    console.log('frontend userId: ', userId);
     dispatch(getMember(token, userId));
     dispatch(getTags());
     dispatch(goToProfile(!toProfile));
@@ -42,25 +41,25 @@ export default class EditProfile extends Component {
   }
 
   handleDelete() {
-    const { getMember, token, dispatch } = this.props;
-    dispatch(deleteMember(getMember, token));
+    const { getMember, userId, token, dispatch } = this.props;
+    dispatch(deleteMember(getMember, userId, token));
   }
 
   handleShowHide() {
-    const { getMember, token, dispatch } = this.props;
-    dispatch(showHideMember(getMember, token));
+    const { getMember, userId, token, dispatch } = this.props;
+    dispatch(showHideMember(getMember, userId, token));
   }
 
   handlePassword(event) {
     event.preventDefault();
-    const {getMember, token, dispatch } = this.props;
-    dispatch(updatePassword(getMember, token));
+    const {getMember, userId, token, dispatch } = this.props;
+    dispatch(updatePassword(getMember, userId, token));
   }
 
   render() {
-    // if (!this.props.token) {
-    //   return <Redirect push to='/' />;
-    // }
+    if (!this.props.token) {
+      return <Redirect push to='/' />;
+    }
     const { getMember, tags, tagIds, isHidden } = this.props;
     return (
       <div>

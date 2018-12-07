@@ -27,10 +27,10 @@ export default class Home extends Component {
   }
 
   render() {
-    if (this.props.toProfile) {
+    const { toProfile, token, members, tags, selectedMember } = this.props;
+    if (toProfile && token) {
       return <Redirect push to='/profile' />;
     }
-    const { members, tags, selectedMember } = this.props;
     return (
       <div>
         <Nav />
