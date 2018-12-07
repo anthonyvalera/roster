@@ -6,8 +6,8 @@ export const postLogin = (userData, dispatch, isLoggingIn, toProfile) => {
     type: 'POST_LOGIN',
     payload: axios.post('api/members/login', userData)
       .then(response => {
-        dispatch(loggingIn(!isLoggingIn));
         dispatch(goToProfile(!toProfile));
+        dispatch(loggingIn(!isLoggingIn));
         return response.data;
       })
   };

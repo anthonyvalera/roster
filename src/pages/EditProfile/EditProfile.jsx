@@ -19,7 +19,8 @@ export default class EditProfile extends Component {
 
   componentDidMount() {
     const { dispatch, token, userId, toProfile } = this.props;
-    dispatch(getMember(token, userId));
+    const { firstName } = this.props.getMember;
+    if (firstName === '') dispatch(getMember(token, userId));
     dispatch(getTags());
     dispatch(goToProfile(!toProfile));
   }
@@ -124,7 +125,7 @@ export default class EditProfile extends Component {
               </li>
             ))}
           </ul>
-          <button type='submit' className='button submit btn btn-primary'>Update Profile & Exit</button>
+          <button type='submit' className='button submit btn btn-primary'>Update Profile</button>
         </form><br />
         <form onSubmit={this.handlePassword} name='changePassword'>
           <div className='form-group'>
@@ -135,10 +136,10 @@ export default class EditProfile extends Component {
             <label htmlFor='newPassword'>New Password</label>
             <input onChange={this.handleChange} value={getMember.newPassword} type='password' className='form-control' name='newPassword' />
           </div>
-          <div className='form-group'>
+          {/* <div className='form-group'>
             <label htmlFor='confirmPassword'>Confirm New Password</label>
             <input onChange={this.handleChange} value={getMember.confirmPassword} type='password' className='form-control' name='confirmPassword' />
-          </div>
+          </div> */}
           <button onClick={this.handlePassword} className='button submit btn btn-primary'>Update Password</button>
 
         </form><br />
