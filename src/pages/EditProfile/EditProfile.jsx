@@ -38,7 +38,11 @@ export default class EditProfile extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { dispatch, getMember, token, userId } = this.props;
-    dispatch(editMember(getMember, token, userId));
+    if (getMember.avatar.includes('http')) {
+      dispatch(editMember(getMember, token, userId));
+    } else {
+      alert('Must enter valid image url.');
+    }
   }
 
   handleDelete() {
@@ -90,7 +94,7 @@ export default class EditProfile extends Component {
           </div>
           <div className='form-group'>
             <label htmlFor='avatar'>Avatar URL</label>
-            <input onChange={this.handleChange} value={getMember.avatar} type='text' className='form-control' name='avatar' />
+            <input onChange={this.handleChange} value={getMember.avatar} type='url' className='form-control' name='avatar' />
           </div>
           <div className='form-group'>
             <label htmlFor='publicEmail'>Public Email address</label>
@@ -98,19 +102,19 @@ export default class EditProfile extends Component {
           </div>
           <div className='form-group'>
             <label htmlFor='website'>Your Website</label>
-            <input onChange={this.handleChange} value={getMember.website} type='text' className='form-control' name='website' />
+            <input onChange={this.handleChange} value={getMember.website} type='url' className='form-control' name='website' />
           </div>
           <div className='form-group'>
             <label htmlFor='linkedIn'>LinkedIn</label>
-            <input onChange={this.handleChange} value={getMember.linkedIn} type='text' className='form-control' name='linkedIn' />
+            <input onChange={this.handleChange} value={getMember.linkedIn} type='url' className='form-control' name='linkedIn' />
           </div>
           <div className='form-group'>
             <label htmlFor='facebook'>facebook</label>
-            <input onChange={this.handleChange} value={getMember.facebook} type='text' className='form-control' name='facebook' />
+            <input onChange={this.handleChange} value={getMember.facebook} type='url' className='form-control' name='facebook' />
           </div>
           <div className='form-group'>
             <label htmlFor='Twitter'>Twitter</label>
-            <input onChange={this.handleChange} value={getMember.twitter} type='text' className='form-control' name='twitter' />
+            <input onChange={this.handleChange} value={getMember.twitter} type='url' className='form-control' name='twitter' />
           </div>
           <br />
           <h3>Skills, Tags & Tools.</h3>
@@ -130,11 +134,11 @@ export default class EditProfile extends Component {
         <form onSubmit={this.handlePassword} name='changePassword'>
           <div className='form-group'>
             <label htmlFor='oldPassword'>Old Password</label>
-            <input onChange={this.handleChange} value={getMember.oldPassword} type='password' className='form-control' name='oldPassword' />
+            <input onChange={this.handleChange} value={getMember.oldPassword} type='password' autoComplete='current-password' className='form-control' name='oldPassword' />
           </div>
           <div className='form-group'>
             <label htmlFor='newPassword'>New Password</label>
-            <input onChange={this.handleChange} value={getMember.newPassword} type='password' className='form-control' name='newPassword' />
+            <input onChange={this.handleChange} value={getMember.newPassword}  type='password' autoComplete='new-password' className='form-control' name='newPassword' />
           </div>
           {/* <div className='form-group'>
             <label htmlFor='confirmPassword'>Confirm New Password</label>

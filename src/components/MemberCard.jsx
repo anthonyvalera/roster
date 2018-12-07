@@ -11,7 +11,7 @@ export default class MemberCard extends Component {
     const { memberInfo, memberTags } = this.props;
     return (
       <div id='member-card'>
-        <img src={memberInfo.avatar} />
+        <img src={memberInfo.avatar} alt={memberInfo.name} />
         <h2>{memberInfo.name}</h2>
         <h3>{memberInfo.headline}</h3>
         {memberTags.map((tag, index) => (

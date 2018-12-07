@@ -27,7 +27,11 @@ export default class Registration extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { newMember, dispatch } = this.props;
-    dispatch(addMember(newMember));
+    if (newMember.avatar.includes('http')) {
+      dispatch(addMember(newMember));
+    } else {
+      alert('Must enter valid image url.');
+    }
   }
 
   render() {
@@ -51,11 +55,11 @@ export default class Registration extends Component {
           </div><br />
           <div className='form-group'>
             <label htmlFor='password'>New Password</label>
-            <input onChange={this.handleChange} value={newMember.password} type='password' className='form-control' name='password' placeholder='Password' />
+            <input onChange={this.handleChange} value={newMember.password} type='password' autoComplete='new-password' className='form-control' name='password' placeholder='Password' />
           </div>
           <div className='form-group'>
             <label htmlFor='verifyPassword'>Verify Password</label>
-            <input onChange={this.handleChange} type='password' value={newMember.verifyPassword} className='form-control' name='verifyPassword' placeholder='Verify Password' />
+            <input onChange={this.handleChange} type='password' value={newMember.verifyPassword} autoComplete='new-password' className='form-control' name='verifyPassword' placeholder='Verify Password' />
           </div>
           <h2>Account Profile Information</h2>
           <div className='form-group'>
@@ -68,7 +72,7 @@ export default class Registration extends Component {
           </div>
           <div className='form-group'>
             <label htmlFor='avatar'>Avatar URL</label>
-            <input onChange={this.handleChange} value={newMember.avatar} type='text' className='form-control' name='avatar' placeholder='Link to your Avatar' />
+            <input onChange={this.handleChange} value={newMember.avatar} type='url' className='form-control' name='avatar' placeholder='Link to your Avatar' />
           </div>
           <div className='form-group'>
             <label htmlFor='publicEmail'>Public Email address</label>
@@ -76,19 +80,19 @@ export default class Registration extends Component {
           </div>
           <div className='form-group'>
             <label htmlFor='website'>Your Website</label>
-            <input onChange={this.handleChange} value={newMember.website} type='text' className='form-control' name='website' placeholder='Your Website' />
+            <input onChange={this.handleChange} value={newMember.website} type='url' className='form-control' name='website' placeholder='Your Website' />
           </div>
           <div className='form-group'>
             <label htmlFor='linkedIn'>LinkedIn</label>
-            <input onChange={this.handleChange} value={newMember.linkedIn} type='text' className='form-control' name='linkedIn' placeholder='LinkedIn' />
+            <input onChange={this.handleChange} value={newMember.linkedIn} type='url' className='form-control' name='linkedIn' placeholder='LinkedIn' />
           </div>
           <div className='form-group'>
             <label htmlFor='facebook'>facebook</label>
-            <input onChange={this.handleChange} value={newMember.facebook} type='text' className='form-control' name='facebook' placeholder='facebook' />
+            <input onChange={this.handleChange} value={newMember.facebook} type='url' className='form-control' name='facebook' placeholder='facebook' />
           </div>
           <div className='form-group'>
             <label htmlFor='Twitter'>Twitter</label>
-            <input onChange={this.handleChange} value={newMember.twitter} type='text' className='form-control' name='twitter' placeholder='Twitter' />
+            <input onChange={this.handleChange} value={newMember.twitter} type='url' className='form-control' name='twitter' placeholder='Twitter' />
           </div>
           <br></br>
           <h3>Skills, Tags & Tools</h3>
