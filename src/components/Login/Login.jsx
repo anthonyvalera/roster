@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
 import { updateInput, postLogin } from './actions';
 
 
@@ -9,7 +8,7 @@ export default class Login extends Component {
     this.state = {};
 
     this.handleInput = this.handleInput.bind(this);
-    this.submitLogin    = this.submitLogin.bind(this);
+    this.submitLogin = this.submitLogin.bind(this);
   }
 
   handleInput(event) {
@@ -20,15 +19,11 @@ export default class Login extends Component {
 
   submitLogin(event) {
     event.preventDefault();
-    const { dispatch, email, password } = this.props;
-    dispatch(postLogin({ email, password }));
+    const { dispatch, email, password, toProfile, isLoggingIn } = this.props;
+    dispatch(postLogin({ email, password }, dispatch, isLoggingIn, toProfile));
   }
 
-
   render() {
-    if (this.props.token) {
-      return <Redirect push to='/profile' />;
-    }
 
     return (
       <div>

@@ -56,3 +56,10 @@ export function loggingIn(value) {
     payload: value
   };
 }
+
+export function goToProfile(value) {
+  return {
+    type: 'GO_TO_PROFILE',
+    payload: value
+  };
+}

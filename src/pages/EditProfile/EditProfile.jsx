@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getMember, editMember, deleteMember, editInput, editTag, showHideMember } from './actions';
+// import { Redirect } from 'react-router';
+import { getMember, editMember, deleteMember, updatePassword, editInput, editTag, showHideMember } from './actions';
 import { getTags } from '../Registration/actions';
+import { goToProfile } from '../Home/actions';
 
 export default class EditProfile extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleShowHide = this.handleShowHide.bind(this);
+    this.handlePassword = this.handlePassword.bind(this);
   }
 
   componentDidMount() {
-    const { dispatch, token, userId } = this.props;
+    const { dispatch, token, userId, toProfile } = this.props;
+    console.log('frontend userId: ', userId);
     dispatch(getMember(token, userId));
     dispatch(getTags());
+    dispatch(goToProfile(!toProfile));
   }
 
   handleChange(event) {
@@ -35,21 +42,25 @@ export default class EditProfile extends Component {
   }
 
   handleDelete() {
-    const { getMember, dispatch } = this.props;
-    dispatch(deleteMember(getMember));
+    const { getMember, token, dispatch } = this.props;
+    dispatch(deleteMember(getMember, token));
   }
 
   handleShowHide() {
-    const { getMember, dispatch } = this.props;
-    dispatch(showHideMember(getMember));
+    const { getMember, token, dispatch } = this.props;
+    dispatch(showHideMember(getMember, token));
   }
 
   handlePassword(event) {
-    const {getMember, dispatch } = this.props;
-    dispatch(updatePassword(getMember));
+    event.preventDefault();
+    const {getMember, token, dispatch } = this.props;
+    dispatch(updatePassword(getMember, token));
   }
 
   render() {
+    // if (!this.props.token) {
+    //   return <Redirect push to='/' />;
+    // }
     const { getMember, tags, tagIds, isHidden } = this.props;
     return (
       <div>

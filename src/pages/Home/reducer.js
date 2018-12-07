@@ -2,7 +2,8 @@ const initialState = {
   tags: [],
   members: [],
   selectedMember: null,
-  isLoggingIn: false
+  isLoggingIn: false,
+  toProfile: false
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -36,6 +37,12 @@ export default function homeReducer(state = initialState, action) {
     return {
       ...state,
       isLoggingIn: payload
+    }; 
+  }
+  case 'GO_TO_PROFILE': {
+    return {
+      ...state,
+      toProfile: payload
     }; 
   }
   default:

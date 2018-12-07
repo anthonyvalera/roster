@@ -1,22 +1,24 @@
 import axios from 'axios';
+import { goToProfile, loggingIn } from '../../pages/Home/actions';
 
-export const postLogin = (userData) => {
+export const postLogin = (userData, dispatch, isLoggingIn, toProfile) => {
   return {
     type: 'POST_LOGIN',
     payload: axios.post('api/members/login', userData)
-      .then(response => response.data)
+      .then(response => {
+        return response.data;
+      })
+      .then(() => {
+        dispatch(loggingIn(!isLoggingIn));
+        dispatch(goToProfile(!toProfile));
+      })
   };
 };
 export const updateInput = (id, value) => {
-  if (id === 'email') {
-    return {
-      type: 'UPDATE_EMAIL',
-      payload: value
-    };
-  } else {
-    return {
-      type: 'UPDATE_PASSWORD',
-      payload: value
-    };
-  }
+  return {
+    type: 'UPDATE_INPUT',
+    payload: {
+      [id]: value
+    }
+  };
 };

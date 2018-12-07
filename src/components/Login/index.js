@@ -3,9 +3,10 @@ import Login from './Login';
 
 const mapStoreToProps = (store) => {
   return {
-    token: store.user.token,
     email: store.user.email,
-    password: store.user.password
+    password: store.user.password,
+    isLoggingIn: store.home.isLoggingIn,
+    toProfile: store.home.toProfile
   };
 };
 

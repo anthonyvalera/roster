@@ -4,7 +4,8 @@ import Navigation from './Navigation';
 const mapStoreToProps = (store) => {
   return {
     tags: store.home.tags,
-    isLoggingIn: store.home.isLoggingIn
+    isLoggingIn: store.home.isLoggingIn,
+    toProfile: store.home.toProfile
   };
 };
 

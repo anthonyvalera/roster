@@ -6,6 +6,7 @@ const mapStoreToProps = (store) => {
     members: store.home.members,
     tags: store.home.tags,
     selectedMember: store.home.selectedMember,
+    toProfile: store.home.toProfile
   };
 };
 

@@ -8,7 +8,8 @@ const mapStoreToProps = (store) => {
     tags: store.registration.tags,
     tagIds: store.edit.member.tagIds,
     getMember: store.edit.member,
-    isHidden: store.edit.member.isHidden
+    isHidden: store.edit.member.isHidden,
+    toProfile: store.home.toProfile
   };
 };
 

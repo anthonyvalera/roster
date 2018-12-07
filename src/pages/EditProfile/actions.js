@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 export const getMember = (token, userId) => {
+  console.log('backend userId: ', userId);
   return {
     type: 'GET_MEMBER',
-    payload: axios.get('/api/members/' + userId)
+    payload: axios.get(`/api/members/${userId}`, { headers: { 'Authorization': token } })
       .then(response => response.data)
   };    
 };
@@ -22,25 +23,25 @@ export const editTag = (name, value) => {
     type: 'EDIT_TAG',
     payload: {
       name,
-      value,
+      value
     }
   };
 };
 
-export const updatePassword = (oldPassword, newPassword) => {
+export const updatePassword = (oldPassword, newPassword, token, userId) => {
   return {
     type: 'UPDATE_PASSWORD',
-    payload: axios.post(`/api/members/change-password/${getMember.id}`, {
+    payload: axios.post(`/api/members/change-password/${userId}`, {
       oldPassword: oldPassword,
       newPassword: newPassword
-    })
+    }, { headers: { 'Authorization': token } })
   };
 };
 
 export const editMember = ( getMember, token, userId ) => {
   return {
     type: 'EDIT_MEMBER',
-    payload: axios.patch('/api/members/' + userId, {
+    payload: axios.patch(`/api/members/${userId}`, {
       firstName: getMember.firstName,
       lastName: getMember.lastName,
       email: getMember.email,
@@ -54,26 +55,26 @@ export const editMember = ( getMember, token, userId ) => {
       facebook: getMember.facebook,
       twitter: getMember.twitter,
       tagIds: getMember.tagIds
-    })
+    }, { headers: { 'Authorization': token } })
     .then(response => response.data)
   };
 };
 
-export const showHideMember = ( getMember ) =>
+export const showHideMember = ( getMember, token ) =>
   ({
     type: 'SHOWHIDE_MEMBER',
     payload: axios.patch(`/api/members/${getMember.id}`, {
       isHidden: !getMember.isHidden
-    })
+    }, { headers: { 'Authorization': token } })
     .then(response => {
       return response.data.isHidden;
     })
   });
   
-export const deleteMember = (getMember) =>
+export const deleteMember = (getMember, token) =>
   ({
     type: 'DELETE_MEMBER',
-    payload: axios.delete(`api/members/${getMember.id}`)
+    payload: axios.delete(`api/members/${getMember.id}`, { headers: { 'Authorization': token } })
       // .then(response => {
       //   return response.data;
       // })

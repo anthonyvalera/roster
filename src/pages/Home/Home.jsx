@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import { getTags, getMembers, getSelectedMember } from './actions';
 import Nav from '../../components/Navigation';
 import Profile from '../../components/ViewProfile';
@@ -26,6 +27,9 @@ export default class Home extends Component {
   }
 
   render() {
+    if (this.props.toProfile) {
+      return <Redirect push to='/profile' />;
+    }
     const { members, tags, selectedMember } = this.props;
     return (
       <div>

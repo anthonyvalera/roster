@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Login from '../../components/Login';
-import { getTags, loggingIn } from '../../pages/Home/actions';
+import { getTags, loggingIn, goToProfile } from '../../pages/Home/actions';
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -18,8 +18,13 @@ export default class Navigation extends Component {
 
   handleLogin() {
     const { dispatch } = this.props;
-    const { isLoggingIn } = this.props;
+    const { isLoggingIn, toProfile } = this.props;
     dispatch(loggingIn(!isLoggingIn));
+    if (this.props.token) {
+      dispatch(goToProfile(!toProfile));
+    } else {
+      dispatch(loggingIn(!isLoggingIn));
+    }
   }
 
   render() {
