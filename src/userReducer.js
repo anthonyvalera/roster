@@ -32,6 +32,12 @@ export default function userReducer(state = initialState, action) {
     };
   }
 
+  case 'DELETE_MEMBER_FULFILLED': {
+    return {
+      ...initialState
+    };
+  }
+
   default: {
     return state;
   }

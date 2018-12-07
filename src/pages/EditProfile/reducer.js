@@ -11,7 +11,9 @@ const initialState = {
     linkedIn: '',
     facebook: '',
     twitter: '',
-    tagIds: []
+    tagIds: [],
+    oldPassword: '',
+    newPassword: ''
   }
 };
 
@@ -22,7 +24,7 @@ export default function editMemberReducer(state = initialState, action) {
   case 'GET_MEMBER_FULFILLED': {
     return {
       ...state,
-      member: payload
+      member: {...initialState.member, ...payload}
     };
   }
 
@@ -53,9 +55,19 @@ export default function editMemberReducer(state = initialState, action) {
   case 'EDIT_MEMBER_FULFILLED': {
     return {
       ...state,
-      member: initialState.member,
+     // member: initialState.member,
       statusText: payload.statusText,
       status: payload.status
+    };
+  }
+
+  case 'UPDATE_PASSWORD_FULFILLED': {
+    return {
+      ...state,
+      member: {...state.member,
+        oldPassword: '',
+        newPassword: ''
+      }
     };
   }
 

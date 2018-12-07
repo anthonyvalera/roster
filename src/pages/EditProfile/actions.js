@@ -30,7 +30,7 @@ export const editTag = (name, value) => {
 export const updatePassword = (oldPassword, newPassword, token, userId) => {
   return {
     type: 'UPDATE_PASSWORD',
-    payload: axios.post(`/api/members/change-password/${userId}`, {
+    payload: axios.post(`/api/members/change-password/`, {
       oldPassword: oldPassword,
       newPassword: newPassword
     }, { headers: { 'Authorization': token } })
@@ -74,7 +74,4 @@ export const deleteMember = (getMember, userId, token) =>
   ({
     type: 'DELETE_MEMBER',
     payload: axios.delete(`api/members/${userId}`, { headers: { 'Authorization': token } })
-      // .then(response => {
-      //   return response.data;
-      // })
   });
