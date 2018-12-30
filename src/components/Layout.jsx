@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export default class Layout extends Component {
@@ -7,10 +8,15 @@ export default class Layout extends Component {
   }
 
   render() {
+    const { children } = this.props;
     return (
-      <div>
-        <h1>Layout</h1>
+      <div className="layout" role="main">
+        {children}
       </div>
     );
   }
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+};
