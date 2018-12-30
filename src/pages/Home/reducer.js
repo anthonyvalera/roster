@@ -1,9 +1,51 @@
-const initialState = {};
+const initialState = {
+  tags: [],
+  members: [],
+  selectedMember: null,
+  isLoggingIn: false,
+  toProfile: false
+};
 
 export default function homeReducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    default:
-      return state;
+  case 'GET_TAGS_FULFILLED': {
+    return {
+      ...state,
+      tags: payload
+    };
+  }
+  case 'GET_MEMBERS_FULFILLED': {
+    return {
+      ...state,
+      members: payload
+    }; 
+  }
+  case 'GET_SELECTED_MEMBER_FULFILLED': {
+    return {
+      ...state,
+      selectedMember: payload
+    }; 
+  }
+  case 'CLOSE_PROFILE': {
+    return {
+      ...state,
+      selectedMember: payload
+    }; 
+  }
+  case 'LOGGING_IN': {
+    return {
+      ...state,
+      isLoggingIn: payload
+    }; 
+  }
+  case 'GO_TO_PROFILE': {
+    return {
+      ...state,
+      toProfile: payload
+    }; 
+  }
+  default:
+    return state;
   }
 }

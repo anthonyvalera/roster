@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import Navigation from './Navigation';
+import Login from './Login';
 
 const mapStoreToProps = (store) => {
   return {
-    token: store.user.token,
-    tags: store.home.tags,
+    email: store.user.email,
+    password: store.user.password,
     isLoggingIn: store.home.isLoggingIn,
     toProfile: store.home.toProfile
   };
 };
 
-export default connect(mapStoreToProps)(Navigation);
+export default connect(mapStoreToProps)(Login);

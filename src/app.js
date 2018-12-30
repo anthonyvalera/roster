@@ -8,10 +8,10 @@ import './scss/styles';
 const App = () => (
   <Router>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/registration" component={Registration} />
-      <Route exact path="/profile" component={EditProfile} />
-      <Route component={() => <p>That doesn't exist!</p>} />
+      <Route exact path='/' component={Home} />
+      <Route exact path='/registration' component={Registration} />
+      <Route exact path='/profile' component={EditProfile} />
+      <Route component={() => <p>That does not exist!</p>} />
     </Switch>
   </Router>
 );
