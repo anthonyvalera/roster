@@ -14,6 +14,9 @@ const initialState = {
     linkedIn: '',
     facebook: '',
     twitter: '',
+    instagram:'',
+    phone:'',
+    github:'',
     tagIds: []
   }
 };

@@ -42,7 +42,7 @@ export default class Home extends Component {
         {
           members.map((member, index) => (
             <div key={'card-' + index} name={member.id} onClick={this.viewProfile}>
-              <MemberCard info={member} tags={tags.filter(tag => member.tagIds.includes(tag.id))} />
+              {/* <MemberCard info={member} tags={tags.filter(tag => member.tagIds.includes(tag.id))} /> */}
             </div>
           ))
         }

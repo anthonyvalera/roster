@@ -3,7 +3,8 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import EditProfile from './pages/EditProfile';
 import Home from './pages/Home';
 import Registration from './pages/Registration';
-import './scss/styles';
+import './scss/materialize';
+// import './scss/styles';
 
 const App = () => (
   <Router>

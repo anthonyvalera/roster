@@ -39,7 +39,7 @@ export default class Navigation extends Component {
             <figcaption>SDJS Logo</figcaption>
           </figure>
           <p>We are a 4,000+ member strong community full of some amazing people who love JavaScript.</p>
-          <Link to='/registration'><button>Add Your Profile</button></Link>
+          <Link to='/registration'><button className="btn btn-link">Add Your Profile</button></Link>
           <button onClick={this.handleLogin} className="btn btn-link">Edit Your Profile</button>
           {
             isLoggingIn && <Login />

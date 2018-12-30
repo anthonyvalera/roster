@@ -37,6 +37,7 @@ export const addMember = ( newMember ) =>
       lastName: newMember.lastName,
       email: newMember.accountEmail,
       password: newMember.password,
+      phone: newMember.phone,
       headline: newMember.headline,
       bio: newMember.shortBio,
       avatar: newMember.avatar,
@@ -45,6 +46,8 @@ export const addMember = ( newMember ) =>
       linkedIn: newMember.linkedIn,
       facebook: newMember.facebook,
       twitter: newMember.twitter,
+      instagram: newMember.instagram,
+      github: newMember.github,
       tagIds: newMember.tagIds
     })
   });
