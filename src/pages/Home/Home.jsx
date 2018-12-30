@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
-import { getTags, getMembers, getSelectedMember } from './actions';
+import Layout from '../../components/Layout';
+import MemberCard from '../../components/MemberCard';
 import Nav from '../../components/Navigation';
 import Profile from '../../components/ViewProfile';
-import MemberCard from '../../components/MemberCard';
+import { getMembers, getSelectedMember, getTags } from './actions';
 
 export default class Home extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class Home extends Component {
       return <Redirect push to='/profile' />;
     }
     return (
-      <div>
+      <Layout>
         <Nav />
         {selectedMember !== null &&
           <Profile />
@@ -41,12 +42,12 @@ export default class Home extends Component {
         {
           members.map((member, index) => (
             <div key={'card-' + index} name={member.id} onClick={this.viewProfile}>
-              <MemberCard memberInfo={member} memberTags={tags.filter(tag => member.tagIds.includes(tag.id))} />
+              <MemberCard info={member} tags={tags.filter(tag => member.tagIds.includes(tag.id))} />
             </div>
           ))
         }
         </div>
-      </div>
+      </Layout>
     );
   }
 }

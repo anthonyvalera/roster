@@ -8,15 +8,26 @@ export default class MemberCard extends Component {
   }
 
   render() {
-    const { memberInfo, memberTags } = this.props;
+    const { info: { avatar, name, headline, tags = null } } = this.props;
     return (
-      <div id='member-card'>
-        <img src={memberInfo.avatar} alt={memberInfo.name} />
-        <h2>{memberInfo.name}</h2>
-        <h3>{memberInfo.headline}</h3>
-        {memberTags.map((tag, index) => (
-          <button key={index}>{tag.name}</button>
-        ))}
+      <div className='member-card'>
+        <figure className="img-wrap">
+          <img
+            src={avatar}
+            title={`${name} | ${headline}`}
+            alt={`Profile photo of ${name}`}
+          />
+        </figure>
+        <section className="member-info">
+          <h2>{name}</h2>
+          <p>{headline}</p>
+          {tags && <ul>
+            {
+              tags.map(tag => <li>{tag}</li>)
+            }
+          </ul>
+          }
+        </section>
       </div>
     );
   }
